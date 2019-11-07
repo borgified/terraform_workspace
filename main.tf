@@ -1,4 +1,7 @@
-variable depends_on { default = [], type = "list"}
+variable depends_on {
+  default = []
+  type = "list"
+}
 
 resource "null_resource" "prereq" {
   provisioner "local-exec" {
