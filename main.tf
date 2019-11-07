@@ -1,6 +1,6 @@
 resource "null_resource" "prereq" {
   provisioner "local-exec" {
-    command = "apt-get install pip3"
+    command = "which python3"
   }
 }
 
