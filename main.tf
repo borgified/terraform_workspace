@@ -1,3 +1,5 @@
+variable depends_on { default = [], type = "list"}
+
 resource "null_resource" "prereq" {
   provisioner "local-exec" {
     command = "pip3 install datadog"
@@ -11,7 +13,7 @@ module "dashboard" {
   api_key = var.api_key
   app_key = var.app_key
   prefix = var.prefix
-  depends_on = [ null_resource.prereq ]
+  depends_on = [ null_resource.prereq.id ]
 }
 
 output "url" {
