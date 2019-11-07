@@ -1,6 +1,6 @@
 resource "null_resource" "prereq" {
   provisioner "local-exec" {
-    command = "pip3 install datadog"
+    command = "apt-get install pip3"
   }
 }
 
