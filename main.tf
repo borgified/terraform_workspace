@@ -1,8 +1,16 @@
-resource "null_resource" "prereq" {
+resource "null_resource" "step1" {
   provisioner "local-exec" {
     command = "pip3 install --user datadog"
   }
 }
+
+resource "null_resource" "step2" {
+  provisioner "local-exec" {
+    command = "pip3 freeze"
+  }
+  depends_on = [ null_resource.step1 ]
+}
+
 
 #module "dashboard" {
 #  source  = "borgified/dashboard/datadog"
