@@ -1,6 +1,16 @@
 resource "null_resource" "prereq" {
   provisioner "local-exec" {
-    command = "which python3"
+    command = "which pip3"
+  }
+}
+resource "null_resource" "prereq1" {
+  provisioner "local-exec" {
+    command = "which pip"
+  }
+}
+resource "null_resource" "prereq2" {
+  provisioner "local-exec" {
+    command = "pip install --user datadog"
   }
 }
 
