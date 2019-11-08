@@ -12,16 +12,16 @@ resource "null_resource" "step2" {
 }
 
 
-#module "dashboard" {
-#  source  = "borgified/dashboard/datadog"
-#  version = "0.1.5"
-#  # insert the 3 required variables here
-#  api_key = var.api_key
-#  app_key = var.app_key
-#  prefix = var.prefix
-#  description = null_resource.prereq
-#}
+module "dashboard" {
+  source  = "borgified/dashboard/datadog"
+  version = "0.1.7"
+  # insert the 3 required variables here
+  api_key = var.api_key
+  app_key = var.app_key
+  prefix = var.prefix
+  description = null_resource.step2
+}
 
-#output "url" {
-#  value = module.dashboard.url
-#}
+output "url" {
+  value = module.dashboard.url
+}
