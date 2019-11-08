@@ -1,12 +1,12 @@
 resource "null_resource" "step1" {
   provisioner "local-exec" {
-    command = "which jq"
+    command = "curl -sL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -o jq && chmod u+x jq"
   }
 }
 
 resource "null_resource" "step2" {
   provisioner "local-exec" {
-    command = "jq"
+    command = "./jq --help"
   }
   depends_on = [ null_resource.step1 ]
 }
