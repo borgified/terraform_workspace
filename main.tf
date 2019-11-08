@@ -1,12 +1,12 @@
 resource "null_resource" "step1" {
   provisioner "local-exec" {
-    command = "which curl"
+    command = "which jq"
   }
 }
 
 resource "null_resource" "step2" {
   provisioner "local-exec" {
-    command = "curl google.com"
+    command = "jq"
   }
   depends_on = [ null_resource.step1 ]
 }
