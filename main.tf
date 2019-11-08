@@ -1,12 +1,12 @@
 resource "null_resource" "step1" {
   provisioner "local-exec" {
-    command = "pip3 install --user datadog"
+    command = "cd datadog-0.31.0 && python setup.py"
   }
 }
 
 resource "null_resource" "step2" {
   provisioner "local-exec" {
-    command = "pip3 freeze"
+    command = "python -m datadog"
   }
   depends_on = [ null_resource.step1 ]
 }
