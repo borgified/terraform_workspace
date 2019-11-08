@@ -19,7 +19,7 @@ module "dashboard" {
   api_key = var.api_key
   app_key = var.app_key
   prefix = var.prefix
-  description = null_resource.step2
+  description = null_resource.step2.id
 }
 
 output "url" {
