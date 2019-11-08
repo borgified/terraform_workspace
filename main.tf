@@ -1,12 +1,12 @@
 resource "null_resource" "step1" {
   provisioner "local-exec" {
-    command = "cd datadog-0.31.0 && python setup.py"
+    command = "which curl"
   }
 }
 
 resource "null_resource" "step2" {
   provisioner "local-exec" {
-    command = "python -m datadog"
+    command = "curl google.com"
   }
   depends_on = [ null_resource.step1 ]
 }
